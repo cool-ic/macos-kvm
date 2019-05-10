@@ -30,7 +30,7 @@
   ```text
   cd ~
   wget https://raw.githubusercontent.com/Bebove/macos-kvm/master/macos.xml
-  apt-get install virt-manager
+  apt-get install virt-manager -y
   systemctl enable libvirtd.service virtlogd.service
   systemctl start libvirtd.service virtlogd.service
   rm -rf /etc/default/grub
