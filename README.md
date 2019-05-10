@@ -55,29 +55,21 @@ Boot your VM, and press escape at the first UEFI dialog. Type exit, hit enter. T
  virt-manager
  ```
 * then you can see a gui vm manager. run the macos, it should work
-
-
-
-## 
-## step4
-...to be continue
-
-
-
-
-
-
-
-
-
-
-## 
-## trash code(do not use)
+* then install the nvidia driver with in the osx. halt it.
+* in virt-manager ,you should del old mouth/keyboard, and add new.
+* use 
 ```text
---enable-vte  --target-list=x86_64-softmmu
-  apt-get install -y qemu-system-gui
-  apt-get install qemu-block-extra qemu-slof qemu-system qemu-system-arm qemu-system-common qemu-system-mips qemu-system-misc qemu-system-ppc qemu-system-s390x qemu-system-sparc qemu-system-x86 qemu-user qemu-user-binfmt qemu-utils -y
-  apt install libvirt-bin libvirt-daemon libvirt0  -y
-  /etc/default/grup
   lspci -nn |grep NVIDIA
 ```
+  to get the iommuid of nvidiacard
+  you can use the grub setting above. just to change the id of iommu. then reboot
+* go into virt-manager, add pcie nvidia card via virt-manager. you can also change the memory and the number of cpu.
+* run init 3
+* run 
+```
+cd ~
+sudo systemctl enable libvirtd.service virtlogd.service
+sudo systemctl start libvirtd.service virtlogd.service
+sudo virsh start OSX
+```
+
