@@ -8,42 +8,67 @@
 
 ## 
 ## step1
-* install kubuntu18.04.2. It is better to use a kde version of ubuntu
+* install kubuntu 18.10. It is better to use a kde version of ubuntu.
 * (if in china,add tuna apt source ) and make a full upgrade
 * install the qemu v4.0
   ```text
   apt-get update -y
   apt-get upgrade -y
+  apt-get install python python-pip git axel -y
   apt-get install pkg-config -y
-  apt-get install libjpeg-dev -y
-  apt-get install libopus-dbg libopus-dev curl opus* -y
-  apt-get install python python-pip git -y
   apt-get install libglib2.0-dev libpango1.0-dev libatk1.0-dev -y
-  apt-get update -y
-  apt-get upgrade -y
+
+  apt-get install libjpeg-dev  -y
+  apt-get install libopus-dbg  libvte-2.91-dev  libopus-dev curl opus* -y
+  apt-get install  libepoxy-dev  libgbm-dev  liblzo2-dev libpmem-dev libssl-dev libgtk-3-dev  libsdl2-dev  libsdl-dev -y
+  
   cd ~
-  apt-get install libssl-dev
   wget https://www.spice-space.org/download/releases/spice-protocol-0.12.15.tar.bz2
   tar jxf spice-protocol-0.12.15.tar.bz2
   cd spice-protocol-0.12.15/
   ./configure 
-  make
+  make -j12
   make install
-  cd ..
-  wget https://www.spice-space.org/download/releases/spice-server/spice-0.14.1.tar.bz2
+  
+  apt-get update -y
+  apt-get upgrade -y
+  cd ~
+
+  axel -n 64 https://www.spice-space.org/download/releases/spice-server/spice-0.14.1.tar.bz2
   tar jxf spice-0.14.1.tar.bz2 
   cd spice-0.14.1/
   ./configure 
-  make 
+  make -j12
   make install
-  cd ..
-  wget https://download.qemu.org/qemu-4.0.0.tar.xz
+  cd ~
+  
+  wget https://github.com/libusb/libusb/archive/v1.0.22.zip
+  unzip v1.0.22.zip
+  cd  libusb-1.0.22/
+  aclocal
+  aclocal --install
+  autoconf
+  autoheader 
+  libtoolize
+  automake --add-missing
+  ./configure 
+  make -j12
+  make install 
+  
+  
+  
+  
+  axel -n 128 https://download.qemu.org/qemu-4.0.0.tar.xz
   tar xvJf qemu-4.0.0.tar.xz
   cd qemu-4.0.0
-  ./configure 
-  make -j4
+  ./configure --enable-gtk   --enable-sdl --enable-opengl --enable-lzo --enable-libusb --enable-vte  --target-list=x86_64-softmmu
+  make -j12
   make install
+  
+  
+  apt-get install -y qemu-system-gui
   apt-get install qemu-block-extra qemu-slof qemu-system qemu-system-arm qemu-system-common qemu-system-mips qemu-system-misc qemu-system-ppc qemu-system-s390x qemu-system-sparc qemu-system-x86 qemu-user qemu-user-binfmt qemu-utils -y
+  apt install libvirt-bin libvirt-daemon libvirt0  -y
   ```
  * maybe you should update your pip ,and use tuna source if you are in china
  * install vm:
