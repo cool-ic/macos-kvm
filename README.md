@@ -61,8 +61,8 @@ Boot your VM, and press escape at the first UEFI dialog. Type exit, hit enter. T
 ```text
   lspci -nn |grep NVIDIA
 ```
-  to get the iommuid of nvidiacard
-  you can use the grub setting above. just to change the id of iommu. then reboot
+  to get the iommuid of nvidiacard.
+  (you can use the grub setting provided, just to change the id of iommu) then reboot
 * go into virt-manager, add pcie nvidia card via virt-manager. you can also change the memory and the number of cpu.
 * run init 3
 * run 
