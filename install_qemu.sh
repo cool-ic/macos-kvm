@@ -4,7 +4,7 @@ wget https://raw.githubusercontent.com/Bebove/macos-kvm/master/sources.list
 chmod 777 sources.list
 apt-get update -y
 apt-get upgrade -y
-apt-get install openssh-server
+apt-get install openssh-server -y
 apt-get install python python-pip git axel -y
 pip install --upgrade pip  -i https://pypi.tuna.tsinghua.edu.cn/simple
 sed -i '$d' /usr/bin/pip
