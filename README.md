@@ -61,14 +61,12 @@
   axel -n 128 https://download.qemu.org/qemu-4.0.0.tar.xz
   tar xvJf qemu-4.0.0.tar.xz
   cd qemu-4.0.0
-  ./configure --enable-gtk   --enable-sdl --enable-opengl --enable-lzo --enable-libusb --enable-vte  --target-list=x86_64-softmmu
+  ./configure --enable-gtk   --enable-sdl --enable-opengl --enable-lzo --enable-libusb 
   make -j12
   make install
   
   
-  apt-get install -y qemu-system-gui
-  apt-get install qemu-block-extra qemu-slof qemu-system qemu-system-arm qemu-system-common qemu-system-mips qemu-system-misc qemu-system-ppc qemu-system-s390x qemu-system-sparc qemu-system-x86 qemu-user qemu-user-binfmt qemu-utils -y
-  apt install libvirt-bin libvirt-daemon libvirt0  -y
+
   ```
  * maybe you should update your pip ,and use tuna source if you are in china
  * install vm:
@@ -90,3 +88,12 @@
 * run basic.sh, install the macos to MyDisk, and you can change the resolution of in clover plist.
 
 ...to be continue
+
+## 
+## trash code(do not use)
+```text
+--enable-vte  --target-list=x86_64-softmmu
+  apt-get install -y qemu-system-gui
+  apt-get install qemu-block-extra qemu-slof qemu-system qemu-system-arm qemu-system-common qemu-system-mips qemu-system-misc qemu-system-ppc qemu-system-s390x qemu-system-sparc qemu-system-x86 qemu-user qemu-user-binfmt qemu-utils -y
+  apt install libvirt-bin libvirt-daemon libvirt0  -y
+```
