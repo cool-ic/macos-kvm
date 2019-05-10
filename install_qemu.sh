@@ -42,18 +42,18 @@ make -j12
 make install
 cd ~
 
-wget https://github.com/libusb/libusb/archive/v1.0.22.zip
-unzip v1.0.22.zip
-cd  libusb-1.0.22/
-aclocal
-aclocal --install
-autoconf
-autoheader 
-libtoolize
-automake --add-missing
-./configure 
-make -j12
-make install 
+#wget https://github.com/libusb/libusb/archive/v1.0.22.zip
+#unzip v1.0.22.zip
+#cd  libusb-1.0.22/
+#aclocal
+#aclocal --install
+#autoconf
+#autoheader 
+#libtoolize
+#automake --add-missing
+#./configure 
+#make -j12
+#make install 
 
 
 
