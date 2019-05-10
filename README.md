@@ -18,7 +18,7 @@
   apt-get install pkg-config -y
   apt-get install libglib2.0-dev libpango1.0-dev libatk1.0-dev -y
 
-  apt-get install libjpeg-dev  -y
+  apt-get install libjpeg-dev  libspice-server1 -y
   apt-get install libopus-dbg  libvte-2.91-dev  libopus-dev curl opus* -y
   apt-get install  libepoxy-dev  libgbm-dev  liblzo2-dev libpmem-dev libssl-dev libgtk-3-dev  libsdl2-dev  libsdl-dev -y
   
