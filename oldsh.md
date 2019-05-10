@@ -28,6 +28,7 @@
 ## step3
 * run
   ```text
+  cd ~
   wget https://raw.githubusercontent.com/Bebove/macos-kvm/master/macos.xml
   apt-get install virt-manager
   systemctl enable libvirtd.service virtlogd.service
