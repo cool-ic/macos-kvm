@@ -61,6 +61,6 @@ make install
 axel -n 128 https://download.qemu.org/qemu-4.0.0.tar.xz
 tar xvJf qemu-4.0.0.tar.xz
 cd qemu-4.0.0
-./configure --enable-gtk   --enable-sdl --enable-opengl --enable-lzo --enable-libusb 
+./configure --enable-gtk   --enable-sdl --enable-opengl --enable-lzo
 make -j12
 make install
