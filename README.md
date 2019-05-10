@@ -78,4 +78,6 @@ Boot your VM, and press escape at the first UEFI dialog. Type exit, hit enter. T
   apt-get install -y qemu-system-gui
   apt-get install qemu-block-extra qemu-slof qemu-system qemu-system-arm qemu-system-common qemu-system-mips qemu-system-misc qemu-system-ppc qemu-system-s390x qemu-system-sparc qemu-system-x86 qemu-user qemu-user-binfmt qemu-utils -y
   apt install libvirt-bin libvirt-daemon libvirt0  -y
+  /etc/default/grup
+  lspci -nn |grep NVIDIA
 ```
