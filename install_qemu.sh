@@ -57,7 +57,7 @@ cd ~
 
 
 
-
+cd ~
 axel -n 128 https://download.qemu.org/qemu-4.0.0.tar.xz
 tar xvJf qemu-4.0.0.tar.xz
 cd qemu-4.0.0
