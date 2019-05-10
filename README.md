@@ -8,7 +8,7 @@
 
 ## 
 ## step1
-* install kubuntu 18.10. It is better to use a kde version of ubuntu.
+* install kubuntu 18.04. It is better to use a kde version of ubuntu.
 * (if in china,add tuna apt source ) and make a full upgrade
 * install the qemu v4.0
   ```text
