@@ -29,7 +29,7 @@ cd spice-protocol-0.12.15/
 ./configure 
 make -j12
 make install
-apt-get install vim
+apt-get install vim -y
 apt-get update -y
 apt-get upgrade -y
 cd ~
