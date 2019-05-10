@@ -12,12 +12,26 @@
 * (if in china,add tuna apt source ) and make a full upgrade
 * install the qemu v4.0
   ```text
+  cd /etc/apt
+  rm -rf sources.list
+  wget https://raw.githubusercontent.com/Bebove/macos-kvm/master/sources.list
+  chmod 777 sources.list
   apt-get update -y
   apt-get upgrade -y
   apt-get install python python-pip git axel -y
+  pip install --upgrade pip  -i https://pypi.tuna.tsinghua.edu.cn/simple
+  sed -i '$d' /usr/bin/pip
+  sed -i '$d' /usr/bin/pip
+  sudo sed -i '$d' /usr/bin/pip
+  sudo echo 'from pip import __main__' >> /usr/bin/pip
+  sudo echo 'if __name__ == '__main__':' >> /usr/bin/pip
+  sudo echo -e '\t sys.exit(__main__._main())' >> /usr/bin/pip
+  pip install pip -U
+  pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+  pip install click request
   apt-get install pkg-config -y
+  apt install libvirt-bin libvirt-daemon libvirt0  -y
   apt-get install libglib2.0-dev libpango1.0-dev libatk1.0-dev -y
-
   apt-get install libjpeg-dev  libspice-server1 -y
   apt-get install libopus-dbg  libvte-2.91-dev  libopus-dev curl opus* -y
   apt-get install  libepoxy-dev  libgbm-dev  liblzo2-dev libpmem-dev libssl-dev libgtk-3-dev  libsdl2-dev  libsdl-dev -y
@@ -71,7 +85,6 @@
  * maybe you should update your pip ,and use tuna source if you are in china
  * install vm:
     ```text
-    pip install click request
     cd ~
     git clone https://github.com/foxlet/macOS-Simple-KVM.git
     cd macOS-Simple-KVM
