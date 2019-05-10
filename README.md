@@ -40,17 +40,31 @@ Boot your VM, and press escape at the first UEFI dialog. Type exit, hit enter. T
   systemctl start libvirtd.service virtlogd.service
   ```
 * edit the /etc/libvirt/qemu.conf. you must uncomment these two lines:
-      ```text
+   ```text
       user="root"
       group="root"
-      ```
+   ```
    and run 
    ```text
    systemctl restart libvirtd.service virtlogd.service
    ```
 * download the xml, edit the paths in it to your own path!!
+* run 
+ ```text
+ virsh define macos.xml
+ virt-manager
+ ```
+* then you can see a gui vm manager. run the macos, it should work
 
+
+
+## 
+## step4
 ...to be continue
+
+
+
+
 
 
 
