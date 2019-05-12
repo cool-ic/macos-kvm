@@ -1,5 +1,5 @@
-##a full guide on how to install macos with gpu passthrough on amd cpu and single nvidia card.
-##you need to make sure that your mother board supports iommu.
+## A full guide on how to install macos with gpu passthrough on amd cpu and single nvidia card.
+## You need to make sure that your mother board supports iommu.
 ## hardware
 
 |      |  info                                              |
