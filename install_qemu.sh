@@ -27,7 +27,7 @@ wget https://www.spice-space.org/download/releases/spice-protocol-0.12.15.tar.bz
 tar jxf spice-protocol-0.12.15.tar.bz2
 cd spice-protocol-0.12.15/
 ./configure 
-make -j12
+make -j4
 make install
 apt-get install vim -y
 apt-get update -y
@@ -38,7 +38,7 @@ axel -n 64 https://www.spice-space.org/download/releases/spice-server/spice-0.14
 tar jxf spice-0.14.1.tar.bz2 
 cd spice-0.14.1/
 ./configure 
-make -j12
+make -j4
 make install
 cd ~
 
@@ -62,5 +62,5 @@ axel -n 128 https://download.qemu.org/qemu-4.0.0.tar.xz
 tar xvJf qemu-4.0.0.tar.xz
 cd qemu-4.0.0
 ./configure --enable-gtk   --enable-sdl --enable-opengl --enable-lzo
-make -j12
+make -j4
 make install
