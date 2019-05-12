@@ -92,7 +92,7 @@ then Boot again to make sure the change didn’t cause any issues.
   lspci -nn |grep NVIDIA
 ```
   to get the iommu_id of nvidiacard. 
-* Download https://raw.githubusercontent.com/Bebove/macos-kvm/master/grub
+* Download grub in this repo
   Delete the /etc/default/grub, and put the grup downloaded in there. Change the two 
   ```text
   vfio-pci.ids=10de:1b81,10de:10f0
