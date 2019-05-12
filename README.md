@@ -1,3 +1,5 @@
+##a full guide on how to install macos with gpu passthrough on amd cpu and single nvidia card.
+##you need to make sure that your mother board supports iommu.
 ## hardware
 
 |      |  info                                              |
@@ -9,26 +11,41 @@
 ## 
 ## step1
 * install ubuntu 18.04. It is better to use the same version of ubuntu.
-* run install_qemu.sh. Which will install qemu4.0.0 for you
-* install the vm:
+* run install_qemu.sh. Which will install qemu4.0.0 for you.
+* install the vm,provided by passthroughpo.st:
     ```text
     cd ~
-    git clone https://github.com/foxlet/macOS-Simple-KVM.git
+    git clone https://github.com/Bebove/macOS-Simple-KVM
     cd macOS-Simple-KVM
-    ./jumpstart.sh  #Note that you can speed the download by replace the 1024 by a bigger number in  'macOS-Simple-KVM/tools/FetchMacOS/fetch-macos.py'
+    ./jumpstart.sh  #This will download High Sierra. Note that you can speed the download by replace the 1024 by a bigger number in  'macOS-Simple-KVM/tools/FetchMacOS/fetch-macos.py'
     qemu-img create -f qcow2 MyDisk.qcow2 64G
     ```
-* adding these 2 lines to the included basic.sh script
+* adding these 2 lines to the  basic.sh script
      ```text
          -drive id=SystemDisk,if=none,file=MyDisk.qcow2 \
          -device ide-hd,bus=sata.4,drive=SystemDisk \
      ```
 ## 
 ## step2
-* run basic.sh, install the macos to MyDisk normally, then you should change the resolution of in clover plist to your display resolution .
+* run basic.sh,this scripe help you boot the vm.
+* Install the macos to 'MyDisk' normally. You need to format 'MyDisk' first.
+* Then you should change the 'ScreenResolution' in clover plist to your display resolution. You may need 'Clover Configurator' to mount EFI,and modify the clover plist.
+```text
+<key>ScreenResolution</key>
+<string>1280x720</string>
+```
 * Also, please change the boot resolution: 
-Boot your VM, and press escape at the first UEFI dialog. Type exit, hit enter. This should bring you to the OVMF configuration menu. Navigate to Device Configuration > OVMF Platform Features, and set the resolution to the same value as your VM resolution. If you did not change your VM resolution, set it to 1280×720. Hit f10, Y, then press escape until you’re in the main dialog. hit continue and boot into the VM. Shut it down fully, then Boot again to make sure the change didn’t cause any issues.
-* now, your vm is working normally. then go to step3 to config the virt-manager
+```text
+Boot your VM, and press escape at the first UEFI dialog. 
+Type exit, hit enter. This should bring you to the OVMF configuration menu. 
+Navigate to Device Configuration > OVMF Platform Features
+and set the resolution to the same value as your VM resolution. 
+If you did not change your VM resolution, set it to 1280×720. 
+Hit f10, Y, then press escape until you’re in the main dialog. 
+hit continue and boot into the VM. Shut it down fully
+then Boot again to make sure the change didn’t cause any issues.
+```
+* now, your vm is working normally. then go to step3 to config the virt-manager, which will help you add gpu passthrough.
 
 
 ## 
