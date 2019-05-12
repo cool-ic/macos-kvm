@@ -45,18 +45,18 @@ Hit f10, Y, then press escape until you’re in the main dialog.
 hit continue and boot into the VM. Shut it down fully
 then Boot again to make sure the change didn’t cause any issues.
 ```
-* now, your vm is working normally. then go to step3 to config the virt-manager, which will help you add gpu passthrough.
+* now, if your vm is working normally, then go to step3 to the virt-manager, which will help you add gpu passthrough.
 
 
 ## 
 ## step3
-* run
+* Run those to install and enable virt-manager.
   ```text
-  apt-get install virt-manager
+  apt-get install virt-manager -y
   systemctl enable libvirtd.service virtlogd.service
   systemctl start libvirtd.service virtlogd.service
   ```
-* edit the /etc/libvirt/qemu.conf. you must uncomment these two lines:
+* Edit the /etc/libvirt/qemu.conf. you must uncomment these two lines:
    ```text
       user="root"
       group="root"
@@ -65,23 +65,39 @@ then Boot again to make sure the change didn’t cause any issues.
    ```text
    systemctl restart libvirtd.service virtlogd.service
    ```
-* download the xml, edit the paths in it to your own path!!
-* run 
+* Download the xml from this repo, edit all the paths in it to your own path!!
+* Run 
  ```text
  virsh define macos.xml
  virt-manager
  ```
-* then you can see a gui vm manager. run the macos, it should work
-* then install the nvidia driver with in the osx. halt it.
-* in virt-manager ,you should del old mouth/keyboard, and add new.
+* Then you can see a gui vm manager. run the macos, it should work fine.
+* Install the nvidia driver with in the osx vm. You need to download and install nvidia web driver for your osx verson. Then reboot and shut down.
+
+## 
+## step4
+* In virt-manager ,you should delete the old mouse/keyboard. There are two mouse and two keyboards listed in macos vm in virt-manager and only one pair can be deleted. Delete one pair which can be deleted.
+* Add new mouth/keyboard, which can be added by click 'add hardware --> usb host device'
 * use 
 ```text
   lspci -nn |grep NVIDIA
 ```
-  to get the iommuid of nvidiacard.
-  (you can use the grub setting provided, just to change the id of iommu) then reboot
-* go into virt-manager, add pcie nvidia card via virt-manager. you can also change the memory and the number of cpu.
-* run init 3
+  to get the iommu_id of nvidiacard. 
+* Download https://raw.githubusercontent.com/Bebove/macos-kvm/master/grub
+  Delete the /etc/default/grub, and put the grup downloaded in there. Change the two 
+  ```text
+  vfio-pci.ids=10de:1b81,10de:10f0
+  ```
+  in grup to the iommu_id found by 
+  ```text
+  lspci -nn |grep NVIDIA
+  ```
+  then reboot your computer.
+* go into virt-manager, add nvidia card via virt-manager. 'add hardware --> PCI host device' . There are two to add.
+ which may seem like:
+ 
+* you can also change the memory and the number of cpu.
+* run init 3 to free the gpu from ubuntu,and login
 * run 
 ```
 cd ~
