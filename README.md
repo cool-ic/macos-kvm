@@ -104,7 +104,7 @@ then Boot again to make sure the change didn’t cause any issues.
   then reboot your computer.
 * go into virt-manager, add nvidia card via virt-manager. 'add hardware --> PCI host device' . There are two to add.
  which may seem like:
- 
+ ![Image text](https://raw.githubusercontent.com/Bebove/macos-kvm/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-12%20%E4%B8%8B%E5%8D%889.20.02.png)
 * you can also change the memory of vm in virt-manager.
 * run 
 ```text
