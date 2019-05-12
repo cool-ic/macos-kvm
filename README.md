@@ -105,8 +105,12 @@ then Boot again to make sure the change didn’t cause any issues.
 * go into virt-manager, add nvidia card via virt-manager. 'add hardware --> PCI host device' . There are two to add.
  which may seem like:
  
-* you can also change the memory and the number of cpu.
-* run init 3 to free the gpu from ubuntu,and login
+* you can also change the memory of vm in virt-manager.
+* run 
+```text
+init 3
+```
+to free the gpu from ubuntu,and login
 * run 
 ```
 cd ~
