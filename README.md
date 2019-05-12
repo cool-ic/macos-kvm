@@ -66,6 +66,15 @@ then Boot again to make sure the change didn’t cause any issues.
    systemctl restart libvirtd.service virtlogd.service
    ```
 * Download the xml from this repo, edit all the paths in it to your own path!!
+* Now you can change the cpu number of vm. change the two '8' in xml:
+```text
+  <vcpu  placement='static'>8</vcpu>
+```
+```text
+  <cpu>
+    <topology sockets='1' cores='8' threads='1'/>
+  </cpu>
+```
 * Run 
  ```text
  virsh define macos.xml
